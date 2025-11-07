@@ -34,5 +34,10 @@ urlpatterns += [
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
 ]
 
+# Добавляем URL для аутентификации ← ДОБАВИТЬ ЭТУ СЕКЦИЮ
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
+
 # Добавляем обработку статических файлов (только для разработки)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
